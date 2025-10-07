@@ -13,28 +13,48 @@ public class WeatherService {
 
     @Value("${weatherapi.key}")
     private String api;
-    private final WebClient webClient; //MAGIJA -> da se povrze
+    private final WebClient webClient;
 
-
-    //da ne ja pisue cela url vo konstruktorot se prakja
     public WeatherService(WebClient.Builder webClientBuilder) {
         this.webClient = webClientBuilder
                 .baseUrl("http://api.weatherapi.com/v1")
                 .build();
     }
 
-    //toa sho ke vrati metodata ke SE KESHIRA
-    @Cacheable
-    public WeatherResponse getWeatherData (String name) {
+    // Existing method for current weather only
+    @Cacheable(value = "currentWeather", key = "#name")
+    public WeatherResponse getWeatherData(String name) {
         try {
             return webClient.get()
-                    .uri(uriBuilder -> uriBuilder    //MAGIJA ->
+                    .uri(uriBuilder -> uriBuilder
                             .path("/current.json")
                             .queryParam("key", api)
                             .queryParam("q", name)
                             .build())
                     .retrieve()
-                    .bodyToMono(WeatherResponse.class) //NAJJAKATA MAGIJA GI ZIMA RABOTITE I GI MAPIRA (JACKSON GO PRAVI TOA)
+                    .bodyToMono(WeatherResponse.class)
+                    .block();
+        } catch (WebClientResponseException e) {
+            System.err.println("Error Response Body: " + e.getResponseBodyAsString());
+            throw e;
+        }
+    }
+
+    // NEW METHOD: For forecast with multiple days
+    @Cacheable(value = "weatherForecast", key = "#name + '_' + #days")
+    public WeatherResponse getWeatherDataWithDays(String name, int days) {
+        try {
+            return webClient.get()
+                    .uri(uriBuilder -> uriBuilder
+                            .path("/forecast.json")
+                            .queryParam("key", api)
+                            .queryParam("q", name)
+                            .queryParam("days", days)
+                            .queryParam("aqi", "no")
+                            .queryParam("alerts", "no")
+                            .build())
+                    .retrieve()
+                    .bodyToMono(WeatherResponse.class)
                     .block();
         } catch (WebClientResponseException e) {
             System.err.println("Error Response Body: " + e.getResponseBodyAsString());
@@ -42,5 +62,3 @@ public class WeatherService {
         }
     }
 }
-
-

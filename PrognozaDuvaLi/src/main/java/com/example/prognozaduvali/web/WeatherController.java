@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin(origins = "http://localhost:5173/")
 public class WeatherController {
 
-    //TODO:
     private final WeatherService weatherService;
 
     public WeatherController(WeatherService weatherService) {
@@ -19,5 +18,17 @@ public class WeatherController {
     @GetMapping(value = "/{city}", produces = "application/json")
     public ResponseEntity<WeatherResponse> getWeather(@PathVariable String city) {
         return ResponseEntity.ok(weatherService.getWeatherData(city));
+    }
+
+    @GetMapping(value = "/{city}/forecast", produces = "application/json")
+    public ResponseEntity<WeatherResponse> getWeatherForecast(
+            @PathVariable String city,
+            @RequestParam(defaultValue = "3") int days) {
+        
+        if (days < 1 || days > 7) {
+            throw new IllegalArgumentException("Days parameter must be between 1 and 7");
+        }
+        
+        return ResponseEntity.ok(weatherService.getWeatherDataWithDays(city, days));
     }
 }
