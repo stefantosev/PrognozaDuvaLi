@@ -1,6 +1,7 @@
 import { useState } from "react";
-import DuvaLiLogo from "../assets/PrognozaDuvaLi.png";
+import DuvaLiLogo from "../assets/DuvaLiLogo.png";
 import "./Navbar.css";
+import { Link } from "react-router-dom";
 
 interface NavbarProps {
   onSearch: (city: string) => void;
@@ -19,18 +20,17 @@ export default function Navbar({ onSearch }: NavbarProps) {
     setIsSearchExpanded(!isSearchExpanded);
   };
 
+  
   return (
     <div className="navbar">
       <div className="nav-logo">
         <img src={DuvaLiLogo} alt="Weather Logo" />
       </div>
       <div className="nav-links">
-        {/* <Link to="/" className="nav-link">
-          Dashboard
-        </Link>
-        <Link to="/heatmap" className="nav-link">
-          Heat Map
-        </Link> */}
+         <div className="nav-links">
+            <Link to="/" className="nav-link">Home</Link>
+            <Link to="/heatmap" className="nav-link">Heat Map</Link>
+          </div>
       </div>
       <div className={`search-container ${isSearchExpanded ? "expanded" : ""}`}>
         <button
