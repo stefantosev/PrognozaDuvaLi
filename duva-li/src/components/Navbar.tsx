@@ -2,7 +2,6 @@ import { useState } from "react";
 import DuvaLiLogo from "../assets/duvali-removebg.png";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
-import { FaSearch } from 'react-icons/fa'; 
 
 interface NavbarProps {
   onSearch: (city: string) => void;

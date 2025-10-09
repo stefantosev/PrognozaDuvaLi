@@ -12,7 +12,7 @@ body {
   background-repeat: no-repeat;   /* no tiling */
   background-attachment: fixed;   /* makes it stay in place on scroll */
   background-color: #000; 
-  min-height: 100vh;              /* fallback color if image fails to load */
+  min-height: 300vh;              /* fallback color if image fails to load */
 }
 
 .home-container {
@@ -22,10 +22,9 @@ body {
   min-height: 100vh;
   position: relative;
   z-index: 0;
-  /* background: rgba(0, 0, 0, 0.35); */
-  /* backdrop-filter: blur(4px); */
   border-radius: 1rem;
 }
+
 .home-container::before {
   content: "";
   position: fixed;
@@ -44,8 +43,8 @@ body {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(10px);
   margin-bottom: 2rem;
-  margin-top: 30rem;
- border: 2px solid rgba(255, 255, 255, 0.3);
+  margin-top: -33rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
 }
 
 .current-header {
