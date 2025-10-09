@@ -61,4 +61,21 @@ public class WeatherService {
             throw e;
         }
     }
+
+    public WeatherResponse getWeatherWithLatitudeLongitude(double latitude, double longitude){
+        try{
+            return webClient.get()
+                    .uri(uriBuilder -> uriBuilder
+                            .path("/current.json")
+                            .queryParam("key", api)
+                            .queryParam("q", latitude , longitude)
+                            .build())
+                    .retrieve()
+                    .bodyToMono(WeatherResponse.class)
+                    .block();
+        } catch (WebClientResponseException e) {
+            System.err.println("Error Response Body: " + e.getResponseBodyAsString());
+            throw e;
+        }
+    }
 }

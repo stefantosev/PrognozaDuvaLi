@@ -99,8 +99,6 @@
   background: rgba(38, 35, 35, 0.9);
   border: none;
   border-radius: 15%;
-  /* width: 40px;
-  height: 40px; */
 } 
 
 .search-button-submit:hover {
@@ -109,4 +107,31 @@
 
 .search-button-submit svg {
   display: block;
+}
+
+
+.location-container {
+  margin-left: 1rem;
+}
+
+.location-button {
+  background-color: rgb(36, 33, 33);
+  border: none;
+  border-radius: 10%;
+  padding: 0.6rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.location-button:hover {
+  background-color: #e8f0fe;
+  transform: scale(1.05);
+}
+
+.location-icon {
+  color: #1a73e8; /* Google Maps blue */
 }

@@ -31,4 +31,9 @@ public class WeatherController {
         
         return ResponseEntity.ok(weatherService.getWeatherDataWithDays(city, days));
     }
+
+    @GetMapping(value = "/{latitude},{longitude}", produces = "application/json")
+    public ResponseEntity<WeatherResponse> getLatLong(@PathVariable double latitude, double longitude){
+        return ResponseEntity.ok(weatherService.getWeatherWithLatitudeLongitude(latitude,longitude));
+    }
 }
