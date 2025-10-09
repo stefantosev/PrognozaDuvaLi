@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./Home.css";
 
 interface HomeProps {
@@ -6,7 +7,8 @@ interface HomeProps {
 }
 
 export default function Home({ weather, error }: HomeProps) {
-  // Format date to be more readable (e.g., "Mon, Oct 7")
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
     return date.toLocaleDateString('en-US', { 
@@ -14,6 +16,11 @@ export default function Home({ weather, error }: HomeProps) {
       month: 'short', 
       day: 'numeric' 
     });
+  };
+
+  const formatHour = (hourString: string) => {
+    const date = new Date(hourString);
+    return date.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
   };
 
   return (
@@ -37,9 +44,7 @@ export default function Home({ weather, error }: HomeProps) {
                 <h1 className="current-temp">{weather.current?.temp_c}°C</h1>
               </div>
             </div>
-            
             <p className="current-condition">{weather.current?.condition?.text}</p>
-
             <div className="current-details-grid">
               <div className="current-detail">
                 <span className="detail-label">Feels Like</span>
@@ -56,16 +61,27 @@ export default function Home({ weather, error }: HomeProps) {
             </div>
           </div>
 
-          {/* Forecast Section - Smaller Cards */}
+          {}
           {weather.forecast && weather.forecast.forecastday && weather.forecast.forecastday.length > 1 && (
             <div className="forecast-section">
               <h3 className="forecast-title">
                 {weather.forecast.forecastday.length - 1}-Day Forecast
               </h3>
               <div className="forecast-cards">
-                {/* Skip the first day (today) since we already show it in the large card */}
                 {weather.forecast.forecastday.slice(1).map((day: any, index: number) => (
-                  <div key={index} className="forecast-card">
+                  <div
+                    key={index}
+                    className="forecast-card"
+                    style={{
+                      cursor: "pointer",
+                      border: expandedIndex === index ? "2px solid #fff" : "1px solid #f0f0f0",
+                      boxShadow: expandedIndex === index
+                        ? "0 0 0 3px rgba(102,126,234,0.3)"
+                        : "0 4px 15px rgba(0, 0, 0, 0.3)",
+                      transition: "box-shadow 0.2s, border 0.2s"
+                    }}
+                    onClick={() => setExpandedIndex(expandedIndex === index ? null : index)}
+                  >
                     <h4 className="forecast-day">{formatDate(day.date)}</h4>
                     <img 
                       src={day.day.condition.icon} 
@@ -96,6 +112,32 @@ export default function Home({ weather, error }: HomeProps) {
                   </div>
                 ))}
               </div>
+              {}
+              {expandedIndex !== null && (
+                <div className="hourly-forecast-row">
+                  <h5 style={{ margin: "0 0 1rem 0", textAlign: "center" }}>
+                    Hourly Forecast (every 3 hours) for {formatDate(weather.forecast.forecastday[expandedIndex + 1].date)}
+                  </h5>
+                  <div className="hourly-forecast-list">
+                    {weather.forecast.forecastday[expandedIndex + 1].hour
+                      .filter((_: any, hIdx: number) => hIdx % 3 === 0)
+                      .map((hour: any, hIdx: number) => (
+                        <div className="hourly-forecast-item" key={hIdx}>
+                          <div style={{ fontSize: "0.95rem", marginBottom: "0.3rem" }}>
+                            {formatHour(hour.time)}
+                          </div>
+                          <img src={hour.condition.icon} alt={hour.condition.text} style={{ width: 36, height: 36 }} />
+                          <div style={{ fontWeight: 600, fontSize: "1.1rem" }}>{hour.temp_c}°C</div>
+                          <div style={{ fontSize: "0.85rem", opacity: 0.8 }}>{hour.condition.text}</div>
+                          <div style={{ fontSize: "0.8rem", marginTop: "0.2rem" }}>
+                            💧 {hour.humidity}%<br />
+                            💨 {hour.wind_kph}km/h
+                          </div>
+                        </div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           )}
         </>

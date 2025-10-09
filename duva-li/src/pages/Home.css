@@ -145,15 +145,19 @@ body {
 }
 
 .forecast-card {
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 20px;
-  padding: 1.5rem;
-  text-align: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease;
-  color: #fff;
-  backdrop-filter: blur(12px);
-  border: 1px solid #f0f0f0;
+  width: 100%;
+  max-width: 220px;
+  min-width: 180px;
+  height: 320px;
+  background: rgba(255,255,255,0.12);
+  border-radius: 18px;
+  padding: 1.2rem 1rem;
+  box-sizing: border-box;
+  transition: box-shadow 0.2s, border 0.2s;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .forecast-card:hover {
@@ -222,6 +226,34 @@ body {
 
 .forecast-detail:last-child {
   border-bottom: none;
+}
+
+/* Hourly Forecast */
+.hourly-forecast-row {
+  width: 100%;
+  margin: 2rem 0 2.5rem 0;
+  padding: 1.2rem 0.5rem;
+  background: rgba(0,0,0,0.7);
+  border-radius: 15px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  color: #fff;
+  overflow-x: auto;
+}
+
+.hourly-forecast-list {
+  display: flex;
+  flex-direction: row;
+  gap: 1.2rem;
+  overflow-x: auto;
+}
+
+.hourly-forecast-item {
+  min-width: 90px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 10px;
+  padding: 0.5rem;
+  text-align: center;
+  flex-shrink: 0;
 }
 
 /* Responsive Design */
