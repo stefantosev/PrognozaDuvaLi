@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./Home.css";
 
 interface HomeProps {
@@ -8,6 +8,27 @@ interface HomeProps {
 
 export default function Home({ weather, error }: HomeProps) {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+  // const [backgroundImage, setBackgroundImage] = useState<string>("");
+
+
+  useEffect(() => {
+    if (!weather?.current) return;
+
+    const isDay = weather.current.is_day === 1;
+    const imageUrl = isDay
+      ? "https://images.pexels.com/photos/125510/pexels-photo-125510.jpeg?cs=srgb&dl=pexels-hikaique-125510.jpg&fm=jpg"
+      : "https://images.pexels.com/photos/3225517/pexels-photo-3225517.jpeg?cs=srgb&dl=pexels-johannes-plenio-3225517.jpg&fm=jpg";
+
+      document.body.style.backgroundImage = `url(${imageUrl})`;
+      document.body.style.backgroundSize = "cover";
+      document.body.style.backgroundPosition = "center";  
+      document.body.style.backgroundRepeat = "no-repeat";
+      document.body.style.backgroundAttachment = "fixed";
+    
+      return () => {
+        document.body.style.backgroundImage = "";
+      }
+  }, [weather]);
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);

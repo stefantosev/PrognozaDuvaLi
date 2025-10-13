@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import "./App.css";
@@ -36,7 +36,28 @@ function App() {
     setWeather(data);
 }
 
+useEffect(() => {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const { latitude, longitude } = position.coords;
+        console.log("Latitude:", latitude, "Longitude:", longitude);
+        handleGetLocation(latitude, longitude);
+      },
+      (error) => {
+        console.error("Error getting location:", error);
+        setError("Unable to retrieve your location. Please allow location access or enter a city manually.");
+        //handleSearch("Skopje");
+      }
+    );
+  }
+  else {
+    console.log("Geolocation is not supported by this browser.");
+    //handleSearch("Skopje");
+  }
+}, []);
 
+//TODO: TOSO KE PRAVI RUTIRANJE NA STRANICI ZA DA IMA I KARTA I HOME PAGE
   return (
     <>
       <Navbar
