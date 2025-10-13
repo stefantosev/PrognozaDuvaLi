@@ -57,7 +57,6 @@ useEffect(() => {
   }
 }, []);
 
-//TODO: TOSO KE PRAVI RUTIRANJE NA STRANICI ZA DA IMA I KARTA I HOME PAGE
   return (
     <>
       <Navbar
