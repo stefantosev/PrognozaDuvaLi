@@ -34,10 +34,16 @@ body {
   z-index: -1;
 }
 
+.weather-widget-container {
+  position: relative;
+  margin-top: -40rem;
+  display: flex;
+  justify-content: center;
+}
+
 
 /* Current Weather - Large Card */
-.current-weather-card {
-  /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
+/* .current-weather-card {
   border-radius: 25px;
   padding: 2.5rem;
   color: white;
@@ -123,7 +129,7 @@ body {
   display: block;
   font-size: 1.3rem;
   font-weight: 600;
-}
+} */
 
 /* Forecast Section */
 .forecast-section {

@@ -50,6 +50,7 @@ export default function Home() {
 
 
   return (weather && weather.forecast && (
+     <div className="weather-widget-container">
     <WeatherWidget
       temp={weather.current.temp_c}
       wind={weather.current.wind_kph}
@@ -67,5 +68,6 @@ export default function Home() {
       icon={weather.current.condition.icon}
       lastUpdated={weather.current.last_updated }
     />
+    </div>
     
   ))};

@@ -179,12 +179,6 @@ export default function WeatherWidget({
             </div>
           ))}
         </div>
-
-        <div className="proverb">
-          "Tosoou,
-          <br />
-          Kaj si"
-        </div>
       </div>
     </div>
   );
