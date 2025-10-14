@@ -1,4 +1,3 @@
-import React from "react";
 import "./WeatherWidget.css";
 
 interface WeatherWidgetProps {
@@ -28,9 +27,17 @@ export default function WeatherWidget({
   icon,
   lastUpdated,
 }: WeatherWidgetProps) {
+  const getConditionClass = (condition: string) => {
+    return condition
+      .toLowerCase()
+      .replace(/\s+/g, "-")
+      .replace(/[^a-z0-9-]/g, "");
+  };
   return (
     <div
-      className={`widget ${isDay ? "day" : "night"} ${condition.toLowerCase()}`}
+      className={`widget ${isDay ? "day" : "night"} ${getConditionClass(
+        condition
+      )}`}
     >
       <div>
         {name} {region} {country} {lastUpdated}
@@ -49,14 +56,13 @@ export default function WeatherWidget({
           </div>
         )}
 
-        {condition === "Partly cloudy" ||
-          (condition === "Partly Cloudy" && (
-            <div className="partly-cloudy-animation">
-              <div className="fluffy-cloud cloud-1"></div>
-              <div className="fluffy-cloud cloud-2"></div>
-              <div className="fluffy-cloud cloud-3"></div>
-            </div>
-          ))}
+        {(condition === "Partly cloudy" || condition === "Partly Cloudy") && (
+          <div className="partly-cloudy-animation">
+            <div className="fluffy-cloud cloud-1"></div>
+            <div className="fluffy-cloud cloud-2"></div>
+            <div className="fluffy-cloud cloud-3"></div>
+          </div>
+        )}
 
         {condition === "Fog" && (
           <div className="fog-animation">
@@ -78,6 +84,22 @@ export default function WeatherWidget({
               <div className="rain-drop drop-4"></div>
               <div className="rain-drop drop-5"></div>
             </div>
+          </div>
+        )}
+
+        {condition === "Moderate or heavy rain with thunder" && (
+          <div className="heavy-rain-thunder-animation">
+            <div className="heavy-thunder-cloud cloud-1"></div>
+            <div className="heavy-thunder-cloud cloud-2"></div>
+            <div className="heavy-thunder-cloud cloud-3"></div>
+            <div className="heavy-rain-drops">
+              {[...Array(15)].map((_, i) => (
+                <div className="heavy-drop" key={i}></div>
+              ))}
+            </div>
+            <div className="intense-lightning flash-1"></div>
+            <div className="intense-lightning flash-2"></div>
+            <div className="intense-lightning flash-3"></div>
           </div>
         )}
 
@@ -165,9 +187,11 @@ export default function WeatherWidget({
         )}
 
         {condition === "cloudy" && (
-          <div className="clouds">
-            <div className="cloud"></div>
-            <div className="cloud small"></div>
+          <div className="cloudy-animation">
+            <div className="cloudy-cloud cloud-1"></div>
+            <div className="cloudy-cloud cloud-2"></div>
+            <div className="cloudy-cloud cloud-3"></div>
+            <div className="cloudy-cloud cloud-4"></div>
           </div>
         )}
       </div>
