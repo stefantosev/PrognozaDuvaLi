@@ -1,0 +1,163 @@
+/* ForecastSection.css - solid cards kept in a single row on desktop */
+
+/* Parent section */
+.forecast-section {
+  width: 100%;
+  padding: 1rem 2rem;
+  box-sizing: border-box;
+  text-align: center;
+  margin-top: -5rem;
+}
+
+/* Title */
+.forecast-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1.25rem;
+}
+
+/* Cards container: keep them in one row on desktop */
+.forecast-cards {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1.25rem;
+  flex-wrap: nowrap;           /* DON'T wrap on desktop */
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+/* Single card - solid (not transparent) */
+.forecast-card {
+  background: #ffffff;         /* solid white card */
+  color: #1f2937;              /* dark text for readability */
+  width: 220px;                /* fixed card width for consistent row */
+  min-width: 220px;
+  border-radius: 14px;
+  padding: 1.1rem;
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.12);
+  border: 1px solid rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+/* Hover */
+.forecast-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.18);
+}
+
+/* Date */
+.forecast-day {
+  background: #f3f4f6;
+  padding: 0.35rem 0.6rem;
+  border-radius: 9px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #111827;
+  margin-bottom: 0.6rem;
+}
+
+/* Icon */
+.forecast-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0.4rem 0 0.6rem 0;
+}
+
+/* Temps */
+.forecast-temps {
+  display: flex;
+  gap: 0.6rem;
+  align-items: baseline;
+  margin-bottom: 0.5rem;
+}
+
+.max-temp {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.min-temp {
+  font-size: 1rem;
+  color: #6b7280;
+}
+
+/* Condition */
+.forecast-condition {
+  font-size: 0.95rem;
+  color: #374151;
+  margin: 0.5rem 0 0.8rem 0;
+  text-align: center;
+  min-height: 2.1rem;
+}
+
+/* Details area (humidity, wind, precip) */
+.forecast-details {
+  width: 100%;
+  display: flex;                /* use flexbox layout */
+  flex-direction: row;          /* make items go in a row */
+  justify-content: center;      /* center all details horizontally */
+  align-items: center;          /* vertically align icons and text */
+  gap: 1.5rem;                  /* spacing between each item */
+  margin-top: 1rem;
+  font-size: 1rem;              /* slightly bigger and readable */
+  color: #ffffff;               /* make text white for visibility */
+  font-weight: 500;
+}
+
+.forecast-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  width: 33%;
+}
+
+/* small line separators (optional) */
+.forecast-detail hr {
+  width: 40%;
+  border: none;
+  height: 2px;
+  background: rgba(0,0,0,0.06);
+  margin: 6px 0;
+}
+
+/* ---------- Responsive: allow horizontal scroll on smaller screens ---------- */
+@media (max-width: 980px) {
+  .forecast-cards {
+    flex-wrap: nowrap;         /* keep single row but allow overflow */
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 0.75rem;
+  }
+
+  .forecast-cards::-webkit-scrollbar {
+    height: 8px;
+  }
+  .forecast-cards::-webkit-scrollbar-thumb {
+    background: rgba(100,100,100,0.35);
+    border-radius: 999px;
+  }
+
+  .forecast-card {
+    min-width: 200px;
+    width: 200px;
+  }
+}
+
+/* Mobile: stack if very narrow (optional) */
+@media (max-width: 420px) {
+  .forecast-cards {
+    flex-wrap: nowrap;
+    gap: 0.75rem;
+  }
+  .forecast-card { width: 180px; min-width: 180px; }
+  .forecast-title { font-size: 1.25rem; }
+}

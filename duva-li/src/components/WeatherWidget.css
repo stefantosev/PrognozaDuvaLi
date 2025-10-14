@@ -1,0 +1,1110 @@
+@import url("https://fonts.googleapis.com/css?family=Overlock");
+
+body {
+  background: #643a7a;
+  font-family: "Overlock", sans-serif;
+}
+
+.widget {
+  width: 400px;
+  margin: 5rem auto;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.5);
+  border-radius: 12px;
+  overflow: hidden;
+  background: linear-gradient(to top, #40334f, #2f273c);
+  color: white;
+  position: relative;
+
+}
+
+/* Sky elements */
+.sky {
+  background: linear-gradient(to top, #40334f, #2f273c);
+  height: 200px;
+  position: relative;
+}
+
+.moon {
+  width: 70px;
+  height: 70px;
+  background: radial-gradient(circle, #b1b1c5, #928fa3);
+  border-radius: 50%;
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  box-shadow: 0 0 30px rgba(177, 177, 197, 0.4);
+}
+
+.hills {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  background: #695b93;
+  border-top-left-radius: 100%;
+  border-top-right-radius: 100%;
+}
+
+/* Card content */
+.card {
+  background: #fff;
+  color: #333;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.card-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.temperature {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #40334f;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 1rem;
+}
+
+.forecast {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.forecast-day {
+  background: #f3f3f3;
+  padding: 0.5rem;
+  border-radius: 8px;
+  text-align: center;
+  color: #40334f;
+  font-weight: 600;
+}
+
+.proverb {
+  font-style: italic;
+  font-size: 1rem;
+  text-align: center;
+  color: #4b384c;
+  padding-top: 0.5rem;
+  border-top: 1px solid #ddd;
+}
+
+.widget.day {
+  background: linear-gradient(to top, #87cefa, #f0e68c); /* Sky blue to sun */
+}
+
+.widget.night {
+  background: linear-gradient(to top, #2c3e50, #34495e); /* Dark sky */
+}
+
+/* Overcast Animation */
+.overcast-animation {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.overcast-cloud {
+  position: absolute;
+  background: #5d6d7e;
+  border-radius: 50px;
+  opacity: 0.7;
+  animation: overcastFloat 25s infinite linear;
+}
+
+.overcast-cloud.cloud-1 {
+  width: 120px;
+  height: 60px;
+  top: 30px;
+  left: -80px;
+  animation-delay: 0s;
+}
+
+.overcast-cloud.cloud-2 {
+  width: 160px;
+  height: 70px;
+  top: 60px;
+  left: -120px;
+  animation-delay: -8s;
+  animation-duration: 30s;
+}
+
+.overcast-cloud.cloud-3 {
+  width: 100px;
+  height: 50px;
+  top: 20px;
+  left: -60px;
+  animation-delay: -15s;
+  animation-duration: 35s;
+}
+
+.overcast-cloud.cloud-4 {
+  width: 140px;
+  height: 65px;
+  top: 80px;
+  left: -100px;
+  animation-delay: -20s;
+  animation-duration: 40s;
+}
+
+@keyframes overcastFloat {
+  0% {
+    transform: translateX(-200px);
+  }
+  100% {
+    transform: translateX(500px);
+  }
+}
+
+/* Make the sky darker for overcast */
+.widget.overcast .sky {
+  background: linear-gradient(to top, #4a5568, #2d3748);
+}
+
+/* Clear Weather Animation */
+.clear-animation {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+/* Daytime - Sun Rays */
+.sun-rays {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+}
+
+.ray {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
+  animation: rayPulse 3s infinite ease-in-out;
+}
+
+.ray-1 {
+  width: 4px;
+  height: 40px;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation-delay: 0s;
+}
+
+.ray-2 {
+  width: 40px;
+  height: 4px;
+  top: 50%;
+  right: -40px;
+  transform: translateY(-50%);
+  animation-delay: 0.5s;
+}
+
+.ray-3 {
+  width: 4px;
+  height: 40px;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation-delay: 1s;
+}
+
+.ray-4 {
+  width: 40px;
+  height: 4px;
+  top: 50%;
+  left: -40px;
+  transform: translateY(-50%);
+  animation-delay: 1.5s;
+}
+
+.ray-5 {
+  width: 30px;
+  height: 4px;
+  top: 15px;
+  right: -35px;
+  transform: rotate(45deg);
+  animation-delay: 0.2s;
+}
+
+.ray-6 {
+  width: 30px;
+  height: 4px;
+  bottom: 15px;
+  left: -35px;
+  transform: rotate(45deg);
+  animation-delay: 0.8s;
+}
+
+@keyframes rayPulse {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.1);
+  }
+}
+
+/* Nighttime - Twinkling Stars */
+.stars {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.star {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  animation: twinkle 4s infinite ease-in-out;
+}
+
+.star-1 {
+  width: 3px;
+  height: 3px;
+  top: 40px;
+  left: 80px;
+  animation-delay: 0s;
+}
+
+.star-2 {
+  width: 2px;
+  height: 2px;
+  top: 70px;
+  right: 100px;
+  animation-delay: 1s;
+}
+
+.star-3 {
+  width: 3px;
+  height: 3px;
+  top: 120px;
+  left: 150px;
+  animation-delay: 2s;
+}
+
+.star-4 {
+  width: 2px;
+  height: 2px;
+  top: 60px;
+  left: 200px;
+  animation-delay: 0.5s;
+}
+
+.star-5 {
+  width: 3px;
+  height: 3px;
+  top: 150px;
+  right: 60px;
+  animation-delay: 1.5s;
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+/* Make the sky brighter for clear day */
+.widget.clear.day .sky {
+  background: linear-gradient(to top, #87ceeb, #b0e2ff);
+}
+
+/* Make the sky darker for clear night */
+.widget.clear.night .sky {
+  background: linear-gradient(to top, #1a237e, #283593);
+}
+
+/* Mist Weather Animation */
+.mist-animation {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.mist-layer {
+  position: absolute;
+  width: 120%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  animation: mistFloat 15s infinite linear;
+}
+
+.mist-layer.layer-1 {
+  top: 20%;
+  opacity: 0.4;
+  animation-delay: 0s;
+  animation-duration: 20s;
+}
+
+.mist-layer.layer-2 {
+  top: 50%;
+  opacity: 0.3;
+  animation-delay: -5s;
+  animation-duration: 25s;
+}
+
+.mist-layer.layer-3 {
+  top: 70%;
+  opacity: 0.2;
+  animation-delay: -10s;
+  animation-duration: 30s;
+}
+
+@keyframes mistFloat {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Make the sky hazy for mist */
+.widget.mist .sky {
+  background: linear-gradient(to top, #a0aec0, #718096);
+}
+
+/* Optional: Add blur effect to moon/sun in mist */
+.widget.mist .moon-or-sun {
+  filter: blur(1px);
+  opacity: 0.8;
+}
+
+/* Patchy Rain Nearby Animation */
+.patchy-rain-animation {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.patchy-cloud {
+  position: absolute;
+  background: #6b7280;
+  border-radius: 50px;
+  opacity: 0.6;
+  animation: patchyFloat 20s infinite linear;
+}
+
+.patchy-cloud.cloud-1 {
+  width: 100px;
+  height: 50px;
+  top: 40px;
+  left: -60px;
+  animation-delay: 0s;
+}
+
+.patchy-cloud.cloud-2 {
+  width: 80px;
+  height: 40px;
+  top: 70px;
+  left: -100px;
+  animation-delay: -10s;
+}
+
+.patchy-rain {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.rain-drop {
+  position: absolute;
+  width: 2px;
+  height: 12px;
+  background: #a0aec0;
+  border-radius: 1px;
+  animation: patchyRain 2s infinite linear;
+  opacity: 0;
+}
+
+.rain-drop.drop-1 {
+  left: 30%;
+  animation-delay: 0s;
+}
+
+.rain-drop.drop-2 {
+  left: 50%;
+  animation-delay: 1s;
+}
+
+.rain-drop.drop-3 {
+  left: 70%;
+  animation-delay: 0.5s;
+}
+
+.rain-drop.drop-4 {
+  left: 20%;
+  animation-delay: 1.5s;
+}
+
+.rain-drop.drop-5 {
+  left: 80%;
+  animation-delay: 0.8s;
+}
+
+@keyframes patchyFloat {
+  0% {
+    transform: translateX(-100px);
+  }
+  100% {
+    transform: translateX(400px);
+  }
+}
+
+@keyframes patchyRain {
+  0% {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+}
+
+/* Make the sky gray for patchy rain */
+.widget.patchy-rain-nearby .sky {
+  background: linear-gradient(to top, #718096, #4a5568);
+}
+
+/* Partly Cloudy Animation */
+.partly-cloudy-animation {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.fluffy-cloud {
+  position: absolute;
+  background: #9ca3af;
+  border-radius: 50px;
+  opacity: 0.7;
+  animation: fluffyFloat 30s infinite linear;
+  filter: brightness(1.1);
+}
+
+.fluffy-cloud.cloud-1 {
+  width: 90px;
+  height: 45px;
+  top: 50px;
+  left: -70px;
+  animation-delay: 0s;
+  animation-duration: 35s;
+}
+
+.fluffy-cloud.cloud-2 {
+  width: 70px;
+  height: 35px;
+  top: 80px;
+  left: -120px;
+  animation-delay: -12s;
+  animation-duration: 40s;
+}
+
+.fluffy-cloud.cloud-3 {
+  width: 60px;
+  height: 30px;
+  top: 30px;
+  left: -90px;
+  animation-delay: -20s;
+  animation-duration: 45s;
+}
+
+@keyframes fluffyFloat {
+  0% {
+    transform: translateX(-100px);
+  }
+  100% {
+    transform: translateX(450px);
+  }
+}
+
+/* Make the sky light gray for partly cloudy */
+.widget.partly-cloudy .sky {
+  background: linear-gradient(to top, #a5b4fc, #c7d2fe);
+}
+
+/* Fog Animation */
+.fog-animation {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.fog-layer {
+  position: absolute;
+  width: 150%;
+  height: 80px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0.6),
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  animation: fogFloat 25s infinite linear;
+  filter: blur(5px);
+}
+
+.fog-layer.fog-1 {
+  top: 30px;
+  opacity: 0.5;
+  animation-delay: 0s;
+  animation-duration: 30s;
+}
+
+.fog-layer.fog-2 {
+  top: 80px;
+  opacity: 0.4;
+  animation-delay: -8s;
+  animation-duration: 35s;
+}
+
+.fog-layer.fog-3 {
+  top: 130px;
+  opacity: 0.3;
+  animation-delay: -15s;
+  animation-duration: 40s;
+}
+
+.fog-layer.fog-4 {
+  top: 180px;
+  opacity: 0.2;
+  animation-delay: -20s;
+  animation-duration: 45s;
+}
+
+@keyframes fogFloat {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Make the sky very hazy for fog */
+.widget.fog .sky {
+  background: linear-gradient(to top, #9ca3af, #d1d5db);
+}
+
+/* Heavy blur effect for fog */
+.widget.fog .moon-or-sun {
+  filter: blur(3px);
+  opacity: 0.5;
+}
+
+/* Sunny Animation */
+.sunny-animation {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.sun-beam {
+  position: absolute;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.8),
+    transparent 70%
+  );
+  border-radius: 50%;
+  animation: sunGlow 3s infinite ease-in-out;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.sun-beam.beam-1 {
+  width: 120px;
+  height: 120px;
+  animation-delay: 0s;
+}
+
+.sun-beam.beam-2 {
+  width: 150px;
+  height: 150px;
+  animation-delay: 0.5s;
+}
+
+.sun-beam.beam-3 {
+  width: 180px;
+  height: 180px;
+  animation-delay: 1s;
+}
+
+.sun-beam.beam-4 {
+  width: 210px;
+  height: 210px;
+  animation-delay: 1.5s;
+}
+
+.sun-beam.beam-5 {
+  width: 240px;
+  height: 240px;
+  animation-delay: 2s;
+}
+
+.sun-beam.beam-6 {
+  width: 270px;
+  height: 270px;
+  animation-delay: 2.5s;
+}
+
+.sun-beam.beam-7 {
+  width: 300px;
+  height: 300px;
+  animation-delay: 3s;
+}
+
+.sun-beam.beam-8 {
+  width: 330px;
+  height: 330px;
+  animation-delay: 3.5s;
+}
+
+@keyframes sunGlow {
+  0%,
+  100% {
+    opacity: 0.1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+/* Make the sky bright blue for sunny */
+.widget.sunny .sky {
+  background: linear-gradient(to top, #4facfe, #00f2fe);
+}
+
+/* Make the sun extra bright */
+.widget.sunny .moon-or-sun {
+  background: radial-gradient(circle, #ffeb3b, #ff9800);
+  box-shadow: 0 0 50px rgba(255, 235, 59, 0.8);
+}
+
+/* Thundery Outbreaks Animation */
+.thundery-animation {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.storm-cloud {
+  position: absolute;
+  background: #374151;
+  border-radius: 50px;
+  opacity: 0.9;
+  animation: stormFloat 15s infinite linear;
+}
+
+.storm-cloud.thunder-cloud-1 {
+  width: 140px;
+  height: 70px;
+  top: 30px;
+  left: -80px;
+  animation-delay: 0s;
+}
+
+.storm-cloud.thunder-cloud-2 {
+  width: 120px;
+  height: 60px;
+  top: 70px;
+  left: -120px;
+  animation-delay: -5s;
+}
+
+.storm-cloud.thunder-cloud-3 {
+  width: 100px;
+  height: 50px;
+  top: 20px;
+  left: -150px;
+  animation-delay: -10s;
+}
+
+.lightning-bolt {
+  position: absolute;
+  background: linear-gradient(
+    to bottom,
+    transparent 40%,
+    #fff 50%,
+    transparent 60%
+  );
+  clip-path: polygon(
+    50% 0%,
+    45% 20%,
+    55% 25%,
+    48% 40%,
+    58% 45%,
+    45% 70%,
+    55% 75%,
+    40% 100%,
+    60% 90%,
+    52% 80%,
+    60% 70%,
+    50% 60%,
+    60% 50%,
+    48% 40%,
+    55% 30%,
+    45% 35%,
+    50% 20%
+  );
+  opacity: 0;
+  animation: lightningStrike 8s infinite;
+}
+
+.lightning-bolt.bolt-1 {
+  width: 8px;
+  height: 60px;
+  top: 50px;
+  left: 100px;
+  animation-delay: 2s;
+}
+
+.lightning-bolt.bolt-2 {
+  width: 6px;
+  height: 50px;
+  top: 80px;
+  left: 200px;
+  animation-delay: 6s;
+}
+
+.lightning-bolt.bolt-3 {
+  width: 7px;
+  height: 55px;
+  top: 40px;
+  left: 280px;
+  animation-delay: 10s;
+}
+
+@keyframes stormFloat {
+  0% {
+    transform: translateX(-150px);
+  }
+  100% {
+    transform: translateX(400px);
+  }
+}
+
+@keyframes lightningStrike {
+  0%,
+  95%,
+  100% {
+    opacity: 0;
+    transform: scaleY(1);
+  }
+  96%,
+  97% {
+    opacity: 1;
+    transform: scaleY(1.1);
+  }
+  98%,
+  99% {
+    opacity: 0.7;
+    transform: scaleY(1);
+  }
+}
+
+/* Make the sky dark for thundery weather */
+.widget.thundery-outbreaks-in-nearby .sky {
+  background: linear-gradient(to top, #2d3748, #1a202c);
+}
+
+/* Flash effect on lightning */
+.widget.thundery-outbreaks-in-nearby .lightning-bolt {
+  filter: drop-shadow(0 0 10px #fff);
+}
+
+/* Patchy Light Rain with Thunder Animation */
+.patchy-rain-thunder-animation {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.patchy-thunder-cloud {
+  position: absolute;
+  background: #4b5563;
+  border-radius: 50px;
+  opacity: 0.8;
+  animation: patchyThunderFloat 25s infinite linear;
+}
+
+.patchy-thunder-cloud.cloud-1 {
+  width: 110px;
+  height: 55px;
+  top: 40px;
+  left: -90px;
+  animation-delay: 0s;
+}
+
+.patchy-thunder-cloud.cloud-2 {
+  width: 90px;
+  height: 45px;
+  top: 70px;
+  left: -130px;
+  animation-delay: -12s;
+}
+
+.light-rain-drop {
+  position: absolute;
+  width: 1.5px;
+  height: 8px;
+  background: #cbd5e0;
+  border-radius: 1px;
+  animation: lightRainFall 2.5s infinite linear;
+  opacity: 0;
+}
+
+.light-rain-drop.drop-1 {
+  left: 40%;
+  animation-delay: 0s;
+}
+
+.light-rain-drop.drop-2 {
+  left: 60%;
+  animation-delay: 0.8s;
+}
+
+.light-rain-drop.drop-3 {
+  left: 80%;
+  animation-delay: 1.6s;
+}
+
+.thunder-lightning {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  opacity: 0;
+  animation: thunderFlash 12s infinite;
+}
+
+.thunder-lightning.flash-1 {
+  animation-delay: 4s;
+}
+
+.thunder-lightning.flash-2 {
+  animation-delay: 9s;
+}
+
+@keyframes patchyThunderFloat {
+  0% {
+    transform: translateX(-120px);
+  }
+  100% {
+    transform: translateX(420px);
+  }
+}
+
+@keyframes lightRainFall {
+  0% {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(120px);
+    opacity: 0;
+  }
+}
+
+@keyframes thunderFlash {
+  0%,
+  92%,
+  100% {
+    opacity: 0;
+  }
+  93%,
+  94% {
+    opacity: 0.3;
+  }
+  95%,
+  96% {
+    opacity: 0.1;
+  }
+}
+
+/* Make the sky medium gray for patchy rain with thunder */
+.widget.patchy-light-rain-with-thunder .sky {
+  background: linear-gradient(to top, #4a5568, #2d3748);
+}
+
+/* Subtle flash effect */
+.widget.patchy-light-rain-with-thunder .thunder-lightning {
+  filter: brightness(1.5);
+}
+
+/* Light Rain Animation */
+.light-rain-animation {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.light-rain-cloud {
+  position: absolute;
+  background: #6b7280;
+  border-radius: 50px;
+  opacity: 0.7;
+  animation: lightRainCloudFloat 30s infinite linear;
+}
+
+.light-rain-cloud.cloud-1 {
+  width: 100px;
+  height: 50px;
+  top: 50px;
+  left: -80px;
+  animation-delay: 0s;
+}
+
+.light-rain-cloud.cloud-2 {
+  width: 80px;
+  height: 40px;
+  top: 80px;
+  left: -120px;
+  animation-delay: -15s;
+}
+
+.light-rain-drops {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.light-drop {
+  position: absolute;
+  width: 1px;
+  height: 10px;
+  background: #a0aec0;
+  border-radius: 0.5px;
+  animation: lightRainFall 3s infinite linear;
+  opacity: 0;
+}
+
+.light-drop.drop-1 {
+  left: 25%;
+  animation-delay: 0s;
+}
+
+.light-drop.drop-2 {
+  left: 40%;
+  animation-delay: 0.5s;
+}
+
+.light-drop.drop-3 {
+  left: 55%;
+  animation-delay: 1s;
+}
+
+.light-drop.drop-4 {
+  left: 70%;
+  animation-delay: 1.5s;
+}
+
+.light-drop.drop-5 {
+  left: 85%;
+  animation-delay: 2s;
+}
+
+.light-drop.drop-6 {
+  left: 95%;
+  animation-delay: 2.5s;
+}
+
+@keyframes lightRainCloudFloat {
+  0% {
+    transform: translateX(-100px);
+  }
+  100% {
+    transform: translateX(400px);
+  }
+}
+
+@keyframes lightRainFall {
+  0% {
+    transform: translateY(-40px);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.4;
+  }
+  80% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(140px);
+    opacity: 0;
+  }
+}
+
+/* Make the sky light gray for light rain */
+.widget.light-rain .sky {
+  background: linear-gradient(to top, #718096, #a0aec0);
+}
+
+/* Gentle rain effect */
+.widget.light-rain .light-drop {
+  filter: blur(0.3px);
+}
