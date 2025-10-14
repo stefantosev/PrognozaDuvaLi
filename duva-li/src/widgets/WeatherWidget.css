@@ -1107,3 +1107,203 @@ body {
 .widget.light-rain .light-drop {
   filter: blur(0.3px);
 }
+
+/* Moderate or Heavy Rain with Thunder Animation */
+.heavy-rain-thunder-animation {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 20;
+  overflow: hidden;
+}
+
+.heavy-thunder-cloud {
+  position: absolute;
+  background: #1f2937;
+  border-radius: 60px;
+  opacity: 0.9;
+  animation: heavyStormFloat 12s infinite linear;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.heavy-thunder-cloud.cloud-1 {
+  width: 160px;
+  height: 80px;
+  top: 30px;
+  left: -100px;
+  animation-delay: 0s;
+}
+
+.heavy-thunder-cloud.cloud-2 {
+  width: 140px;
+  height: 70px;
+  top: 60px;
+  left: -150px;
+  animation-delay: -4s;
+}
+
+.heavy-thunder-cloud.cloud-3 {
+  width: 120px;
+  height: 60px;
+  top: 20px;
+  left: -200px;
+  animation-delay: -8s;
+}
+
+.heavy-rain-drops {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.heavy-drop {
+  position: absolute;
+  width: 2.5px;
+  height: 18px;
+  background: linear-gradient(to bottom, transparent, #94a3b8, transparent);
+  border-radius: 1px;
+  animation: heavyRainFall 1s infinite linear;
+  left: calc(-6% + (100% * var(--random-pos)));
+  animation-delay: calc(var(--random-delay) * -1s);
+  opacity: 0;
+}
+
+.heavy-drop:nth-child(1) {
+  --random-pos: 0.1;
+  --random-delay: 0.1;
+}
+.heavy-drop:nth-child(2) {
+  --random-pos: 0.2;
+  --random-delay: 0.3;
+}
+.heavy-drop:nth-child(3) {
+  --random-pos: 0.3;
+  --random-delay: 0.5;
+}
+.heavy-drop:nth-child(4) {
+  --random-pos: 0.4;
+  --random-delay: 0.2;
+}
+.heavy-drop:nth-child(5) {
+  --random-pos: 0.5;
+  --random-delay: 0.4;
+}
+.heavy-drop:nth-child(6) {
+  --random-pos: 0.6;
+  --random-delay: 0.6;
+}
+.heavy-drop:nth-child(7) {
+  --random-pos: 0.7;
+  --random-delay: 0.1;
+}
+.heavy-drop:nth-child(8) {
+  --random-pos: 0.8;
+  --random-delay: 0.3;
+}
+.heavy-drop:nth-child(9) {
+  --random-pos: 0.9;
+  --random-delay: 0.5;
+}
+.heavy-drop:nth-child(10) {
+  --random-pos: 0.15;
+  --random-delay: 0.2;
+}
+.heavy-drop:nth-child(11) {
+  --random-pos: 0.35;
+  --random-delay: 0.4;
+}
+.heavy-drop:nth-child(12) {
+  --random-pos: 0.55;
+  --random-delay: 0.6;
+}
+.heavy-drop:nth-child(13) {
+  --random-pos: 0.75;
+  --random-delay: 0.1;
+}
+.heavy-drop:nth-child(14) {
+  --random-pos: 0.95;
+  --random-delay: 0.3;
+}
+.heavy-drop:nth-child(15) {
+  --random-pos: 0.25;
+  --random-delay: 0.5;
+}
+
+.intense-lightning {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.4);
+  opacity: 0;
+  animation: intenseThunder 6s infinite;
+  filter: blur(10px);
+}
+
+.intense-lightning.flash-1 {
+  animation-delay: 2s;
+}
+
+.intense-lightning.flash-2 {
+  animation-delay: 5s;
+}
+
+.intense-lightning.flash-3 {
+  animation-delay: 8s;
+}
+
+@keyframes heavyStormFloat {
+  0% {
+    transform: translateX(-200px);
+  }
+  100% {
+    transform: translateX(500px);
+  }
+}
+
+@keyframes heavyRainFall {
+  0% {
+    transform: translateY(-50px) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(180px) translateX(10px);
+    opacity: 0;
+  }
+}
+
+@keyframes intenseThunder {
+  0%,
+  90%,
+  100% {
+    opacity: 0;
+  }
+  91%,
+  92% {
+    opacity: 0.6;
+  }
+  93%,
+  94% {
+    opacity: 0.3;
+  }
+  95%,
+  96% {
+    opacity: 0.5;
+  }
+}
+
+/* Make the sky very dark for heavy storm */
+.widget.moderate-or-heavy-rain-with-thunder .sky {
+  background: linear-gradient(to top, #1a202c, #111827);
+}
+
+/* Intense storm effects */
+.widget.moderate-or-heavy-rain-with-thunder .heavy-drop {
+  filter: blur(0.5px);
+}
