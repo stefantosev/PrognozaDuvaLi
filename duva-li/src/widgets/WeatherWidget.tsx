@@ -49,13 +49,14 @@ export default function WeatherWidget({
           </div>
         )}
 
-        {condition === "Partly cloudy" && (
-          <div className="partly-cloudy-animation">
-            <div className="fluffy-cloud cloud-1"></div>
-            <div className="fluffy-cloud cloud-2"></div>
-            <div className="fluffy-cloud cloud-3"></div>
-          </div>
-        )}
+        {condition === "Partly cloudy" ||
+          (condition === "Partly Cloudy" && (
+            <div className="partly-cloudy-animation">
+              <div className="fluffy-cloud cloud-1"></div>
+              <div className="fluffy-cloud cloud-2"></div>
+              <div className="fluffy-cloud cloud-3"></div>
+            </div>
+          ))}
 
         {condition === "Fog" && (
           <div className="fog-animation">
