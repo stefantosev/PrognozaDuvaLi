@@ -4,6 +4,7 @@ import "./Home.css";
 import WeatherWidget from "../components/WeatherWidget";
 import ForecastSection from "../components/ForecastSection";
 import HourlyForecast from "../components/HourlyForecast";
+import WeatherCard from "../components/WeatherCard";
 
 interface HomeContextType {
   weather: any;
@@ -77,7 +78,7 @@ export default function Home() {
           />
         </div>
         <ForecastSection forecastDays={weather.forecast.forecastday} />
-
+        <WeatherCard forecastDays={weather.forecast.forecastday} />
         {weather.forecast.forecastday[1] && (
           <HourlyForecast
             forecastDay={weather.forecast.forecastday[1]}

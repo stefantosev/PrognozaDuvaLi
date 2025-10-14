@@ -1,0 +1,104 @@
+.box {
+  margin: 1em auto;
+  background: #f0f0f0;
+  padding: 2em 0;
+  width: 300px;
+  border-radius: 3px;
+  box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.25);
+  transition: box-shadow 0.3s ease;
+}
+
+.box:hover {
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.box h1 {
+  font-size: 2em;
+  text-align: center;
+  margin: 0.5em 0;
+}
+
+.temp {
+  font-size: 7em;
+  line-height: 1;
+  text-align: center;
+  display: block;
+  padding-left: 30px;
+  margin-bottom: 24px;
+  font-weight: 300;
+}
+
+.highLow {
+  font-size: 2em;
+  color: #6b7780;
+  text-align: center;
+  display: block;
+  font-weight: 100;
+}
+
+.weather .icon {
+  position: relative;
+  margin: 0 auto;
+}
+
+.spin {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  text-align: center;
+  width: 65px;
+}
+
+.bubble {
+  background-color: #313e48;
+  position: relative;
+  width: 100px;
+  height: 100px;
+  padding: 0px;
+  border-radius: 50px;
+  margin: 0 auto;
+}
+
+.bubble::after {
+  content: "";
+  position: absolute;
+  bottom: -14px;
+  left: 14px;
+  border-style: solid;
+  border-width: 29px 15px 0;
+  border-color: #313e48 transparent;
+  display: block;
+  width: 0;
+  z-index: 1;
+  transform: rotate(30deg);
+}
+
+.spin img {
+  animation: spin 5s linear infinite;
+  animation-play-state: paused;
+  width: 100%;
+  height: auto;
+}
+
+.box:hover .spin img {
+  animation-play-state: running;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
+html {
+  font-family: "Roboto Slab", sans-serif;
+}
+
+body {
+  background: #55d6f4;
+  color: #313e48;
+}
+
+img {
+  max-width: 100%;
+}
