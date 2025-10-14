@@ -1,4 +1,3 @@
-import React from "react";
 import "./WeatherWidget.css";
 
 interface WeatherWidgetProps {
