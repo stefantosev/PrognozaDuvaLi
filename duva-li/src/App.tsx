@@ -1,7 +1,20 @@
 import { useEffect, useState } from "react";
+import { Outlet, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import "./App.css";
+import HeatMap from "./pages/HeatMap";
+
+
+function Layout({weather, error, onSearch, onGetLocation}: {weather: any, error: string | null, onSearch: (city: string) => void, onGetLocation: (lat: number, lon: number) => void}) {
+  return (
+    <>
+      <Navbar onSearch={onSearch} onGetLocation={onGetLocation} />
+      <Outlet context={{ weather, error }} />
+    </>
+  );
+}
+
 
 function App() {
   const [weather, setWeather] = useState<any>(null);
@@ -58,13 +71,12 @@ useEffect(() => {
 }, []);
 
   return (
-    <>
-      <Navbar
-         onSearch={handleSearch} 
-         onGetLocation={handleGetLocation}
-      />
-      <Home weather={weather} error={error} />
-    </>
+    <Routes>
+      <Route path="/" element={<Layout weather={weather} error={error} onSearch={handleSearch} onGetLocation={handleGetLocation} />} >
+        <Route index element={<Home />} />
+        <Route path="/heatmap" element={<HeatMap />} />
+      </Route>
+    </Routes>
   );
 }
 

@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
+import { useOutletContext } from "react-router-dom";
 import "./Home.css";
 
-interface HomeProps {
+interface HomeContextType {
   weather: any;
   error: string | null;
 }
 
-export default function Home({ weather, error }: HomeProps) {
+export default function Home() {
+  const { weather, error } = useOutletContext<HomeContextType >();
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
   // const [backgroundImage, setBackgroundImage] = useState<string>("");
 
