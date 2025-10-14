@@ -15,9 +15,6 @@ function App() {
     );
     if (!res.ok) throw new Error("City not found");
       const data = await res.json();
-      console.log("Full API Response:", data); 
-      console.log("Forecast data:", data.forecast); 
-      console.log("Forecast days:", data.forecast?.forecastday); 
       setWeather(data);
       setError(null);
   } 
@@ -47,13 +44,13 @@ useEffect(() => {
       (error) => {
         console.error("Error getting location:", error);
         setError("Unable to retrieve your location. Please allow location access or enter a city manually.");
-        //handleSearch("Skopje");
+        handleSearch("Skopje");
       }
     );
   }
   else {
     console.log("Geolocation is not supported by this browser.");
-    //handleSearch("Skopje");
+    handleSearch("Skopje");
   }
 }, []);
 
