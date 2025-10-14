@@ -80,6 +80,21 @@ export default function WeatherWidget({
           </div>
         )}
 
+        {condition === "Light rain" && (
+          <div className="light-rain-animation">
+            <div className="light-rain-cloud cloud-1"></div>
+            <div className="light-rain-cloud cloud-2"></div>
+            <div className="light-rain-drops">
+              <div className="light-drop drop-1"></div>
+              <div className="light-drop drop-2"></div>
+              <div className="light-drop drop-3"></div>
+              <div className="light-drop drop-4"></div>
+              <div className="light-drop drop-5"></div>
+              <div className="light-drop drop-6"></div>
+            </div>
+          </div>
+        )}
+
         {condition === "Sunny" && (
           <div className="sunny-animation">
             <div className="sun-beam beam-1"></div>

@@ -992,3 +992,118 @@ body {
 .widget.patchy-light-rain-with-thunder .thunder-lightning {
   filter: brightness(1.5);
 }
+
+/* Light Rain Animation */
+.light-rain-animation {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.light-rain-cloud {
+  position: absolute;
+  background: #6b7280;
+  border-radius: 50px;
+  opacity: 0.7;
+  animation: lightRainCloudFloat 30s infinite linear;
+}
+
+.light-rain-cloud.cloud-1 {
+  width: 100px;
+  height: 50px;
+  top: 50px;
+  left: -80px;
+  animation-delay: 0s;
+}
+
+.light-rain-cloud.cloud-2 {
+  width: 80px;
+  height: 40px;
+  top: 80px;
+  left: -120px;
+  animation-delay: -15s;
+}
+
+.light-rain-drops {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.light-drop {
+  position: absolute;
+  width: 1px;
+  height: 10px;
+  background: #a0aec0;
+  border-radius: 0.5px;
+  animation: lightRainFall 3s infinite linear;
+  opacity: 0;
+}
+
+.light-drop.drop-1 {
+  left: 25%;
+  animation-delay: 0s;
+}
+
+.light-drop.drop-2 {
+  left: 40%;
+  animation-delay: 0.5s;
+}
+
+.light-drop.drop-3 {
+  left: 55%;
+  animation-delay: 1s;
+}
+
+.light-drop.drop-4 {
+  left: 70%;
+  animation-delay: 1.5s;
+}
+
+.light-drop.drop-5 {
+  left: 85%;
+  animation-delay: 2s;
+}
+
+.light-drop.drop-6 {
+  left: 95%;
+  animation-delay: 2.5s;
+}
+
+@keyframes lightRainCloudFloat {
+  0% {
+    transform: translateX(-100px);
+  }
+  100% {
+    transform: translateX(400px);
+  }
+}
+
+@keyframes lightRainFall {
+  0% {
+    transform: translateY(-40px);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.4;
+  }
+  80% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(140px);
+    opacity: 0;
+  }
+}
+
+/* Make the sky light gray for light rain */
+.widget.light-rain .sky {
+  background: linear-gradient(to top, #718096, #a0aec0);
+}
+
+/* Gentle rain effect */
+.widget.light-rain .light-drop {
+  filter: blur(0.3px);
+}
