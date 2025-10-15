@@ -25,8 +25,8 @@ public class WeatherController {
             @PathVariable String city,
             @RequestParam(defaultValue = "3") int days) {
         
-        if (days < 1 || days > 7) {
-            throw new IllegalArgumentException("Days parameter must be between 1 and 7");
+        if (days < 1 || days > 14) {
+            throw new IllegalArgumentException("Days parameter must be between 1 and 14");
         }
         
         return ResponseEntity.ok(weatherService.getWeatherDataWithDays(city, days));

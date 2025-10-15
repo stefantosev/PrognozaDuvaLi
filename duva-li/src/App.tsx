@@ -34,7 +34,7 @@ function App() {
       const res = await fetch(
         `http://localhost:8080/api/weather/${encodeURIComponent(
           city
-        )}/forecast?days=6`
+        )}/forecast?days=7`
       );
       if (!res.ok) throw new Error("City not found");
       const data = await res.json();
@@ -50,7 +50,7 @@ function App() {
     const res = await fetch(
       `http://localhost:8080/api/weather/${encodeURIComponent(
         lat + "," + lon
-      )}/forecast?days=6`
+      )}/forecast?days=7`
     );
     const data = await res.json();
     console.log(data);

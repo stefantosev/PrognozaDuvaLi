@@ -77,15 +77,9 @@ export default function Home() {
             lastUpdated={weather.current.last_updated}
           />
         </div>
-        <ForecastSection forecastDays={weather.forecast.forecastday} />
+        {/* <ForecastSection forecastDays={weather.forecast.forecastday} /> */}
         <WeatherCard forecastDays={weather.forecast.forecastday} />
-        {weather.forecast.forecastday[1] && (
-          <HourlyForecast
-            forecastDay={weather.forecast.forecastday[1]}
-            formatDate={formatDate}
-            formatHour={formatHour}
-          />
-        )}
+        
       </div>
     )
   );

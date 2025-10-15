@@ -1,59 +1,54 @@
+.forecastContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.75rem;
+  padding: 1rem;
+}
+
 .box {
-  margin: 1em auto;
+  margin: 0; 
   background: #f0f0f0;
-  padding: 2em 0;
-  width: 300px;
+  padding: 1.5em 0; 
+  width: 100%; 
   border-radius: 3px;
   box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.25);
-  transition: box-shadow 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .box:hover {
   box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.5);
+  transform: translateY(-3px); 
 }
 
 .box h1 {
-  font-size: 2em;
+  font-size: 1.5em; 
   text-align: center;
   margin: 0.5em 0;
 }
 
 .temp {
-  font-size: 7em;
+  font-size: 4em;
   line-height: 1;
   text-align: center;
   display: block;
-  padding-left: 30px;
-  margin-bottom: 24px;
+  padding-left: 20px; 
+  margin-bottom: 16px; 
   font-weight: 300;
 }
 
 .highLow {
-  font-size: 2em;
+  font-size: 1.3em;
   color: #6b7780;
   text-align: center;
   display: block;
   font-weight: 100;
 }
 
-.weather .icon {
-  position: relative;
-  margin: 0 auto;
-}
-
-.spin {
-  position: absolute;
-  top: 16px;
-  right: 18px;
-  text-align: center;
-  width: 65px;
-}
-
 .bubble {
   background-color: #313e48;
   position: relative;
-  width: 100px;
-  height: 100px;
+  width: 70px; 
+  height: 70px;
   padding: 0px;
   border-radius: 50px;
   margin: 0 auto;
@@ -62,15 +57,23 @@
 .bubble::after {
   content: "";
   position: absolute;
-  bottom: -14px;
-  left: 14px;
+  bottom: -10px; 
+  left: 10px; 
   border-style: solid;
-  border-width: 29px 15px 0;
+  border-width: 20px 10px 0;
   border-color: #313e48 transparent;
   display: block;
   width: 0;
   z-index: 1;
   transform: rotate(30deg);
+}
+
+.spin {
+  position: absolute;
+  top: 12px;
+  right: 14px; 
+  text-align: center;
+  width: 45px; 
 }
 
 .spin img {
