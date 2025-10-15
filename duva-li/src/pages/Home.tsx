@@ -2,8 +2,6 @@ import { useEffect } from "react";
 import { useOutletContext } from "react-router-dom";
 import "./Home.css";
 import WeatherWidget from "../components/WeatherWidget";
-import ForecastSection from "../components/ForecastSection";
-import HourlyForecast from "../components/HourlyForecast";
 import WeatherCard from "../components/WeatherCard";
 
 interface HomeContextType {
@@ -12,7 +10,7 @@ interface HomeContextType {
 }
 
 export default function Home() {
-  const { weather, error } = useOutletContext<HomeContextType>();
+  const { weather } = useOutletContext<HomeContextType>();
 
   useEffect(() => {
     if (!weather?.current) return;
@@ -32,23 +30,6 @@ export default function Home() {
       document.body.style.backgroundImage = "";
     };
   }, [weather]);
-
-  const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
-    return date.toLocaleDateString("en-US", {
-      weekday: "short",
-      month: "short",
-      day: "numeric",
-    });
-  };
-
-  const formatHour = (hourString: string) => {
-    const date = new Date(hourString);
-    return date.toLocaleTimeString("en-US", {
-      hour: "2-digit",
-      minute: "2-digit",
-    });
-  };
 
   return (
     weather &&
