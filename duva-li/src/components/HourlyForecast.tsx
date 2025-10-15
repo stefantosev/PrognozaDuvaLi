@@ -10,7 +10,7 @@ export default function HourlyForecast({ forecastDay, formatHour, formatDate }: 
     if (!forecastDay || !forecastDay.hour) return null;
 
     return (
-       <div className="hourly-forecast-row">
+    <div className="hourly-forecast-row">
       <h5 className="hourly-title">
         Hourly Forecast (every 3 hours) for {formatDate(forecastDay.date)}
       </h5>

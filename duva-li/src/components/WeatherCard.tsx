@@ -53,7 +53,7 @@ const WeatherCard: React.FC<WeatherCardProps> = ({ forecastDays }) => {
   return (
     <div className={styles.weatherContainer}>
       <div className={styles.forecastContainer}>
-        {futureDays.map((day, index) => (
+        {futureDays.map((day) => (
           <article 
             className={`${styles.box} ${selectedDay?.date === day.date ? styles.selected : ''}`}
             key={day.date}
