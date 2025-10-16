@@ -9,7 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/weather-map")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "https://prognoza-duva-li-jpd4.vercel.app/")
 public class WeatherMapController {
 
     private final WeatherMapService weatherMapService;
