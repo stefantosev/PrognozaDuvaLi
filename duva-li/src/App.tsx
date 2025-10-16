@@ -32,7 +32,7 @@ function App() {
     if (!city) return;
     try {
       const res = await fetch(
-        `https://prognozaduvali.onrender.com/api/weather/${encodeURIComponent(
+        `http://localhost:8080/api/weather/${encodeURIComponent(
           city
         )}/forecast?days=7`
       );
@@ -48,7 +48,7 @@ function App() {
 
   const handleGetLocation = async (lat: number, lon: number) => {
     const res = await fetch(
-      `https://prognozaduvali.onrender.com/api/weather/${encodeURIComponent(
+      `http://localhost:8080/api/weather/${encodeURIComponent(
         lat + "," + lon
       )}/forecast?days=7`
     );
