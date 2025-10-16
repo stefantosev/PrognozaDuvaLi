@@ -1563,3 +1563,330 @@ body {
 .widget.light-rain-shower .shower-drop {
   filter: blur(0.2px);
 }
+
+/* Patchy Light Rain in Area with Thunder Animation */
+.patchy-light-rain-thunder-animation {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.patchy-thunder-rain-cloud {
+  position: absolute;
+  background: #4b5563;
+  border-radius: 50px;
+  opacity: 0.8;
+  animation: patchyThunderRainFloat 25s infinite linear;
+}
+
+.patchy-thunder-rain-cloud.cloud-1 {
+  width: 100px;
+  height: 50px;
+  top: 40px;
+  left: -80px;
+  animation-delay: 0s;
+}
+
+.patchy-thunder-rain-cloud.cloud-2 {
+  width: 80px;
+  height: 40px;
+  top: 70px;
+  left: -120px;
+  animation-delay: -12s;
+}
+
+.patchy-thunder-rain-drops {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.patchy-thunder-drop {
+  position: absolute;
+  width: 1.5px;
+  height: 10px;
+  background: #cbd5e0;
+  border-radius: 1px;
+  animation: patchyThunderRainFall 2.5s infinite linear;
+  opacity: 0;
+  left: calc(15% + (70% * var(--random-pos)));
+  animation-delay: calc(var(--random-delay) * -1s);
+}
+
+.patchy-thunder-drop:nth-child(1) { --random-pos: 0.1; --random-delay: 0.1; }
+.patchy-thunder-drop:nth-child(2) { --random-pos: 0.3; --random-delay: 0.8; }
+.patchy-thunder-drop:nth-child(3) { --random-pos: 0.5; --random-delay: 1.5; }
+.patchy-thunder-drop:nth-child(4) { --random-pos: 0.7; --random-delay: 2.0; }
+.patchy-thunder-drop:nth-child(5) { --random-pos: 0.9; --random-delay: 0.5; }
+.patchy-thunder-drop:nth-child(6) { --random-pos: 0.2; --random-delay: 1.2; }
+
+.patchy-thunder-lightning {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  opacity: 0;
+  animation: patchyThunderFlash 15s infinite;
+  filter: blur(5px);
+}
+
+.patchy-thunder-lightning.flash-1 {
+  animation-delay: 5s;
+}
+
+.patchy-thunder-lightning.flash-2 {
+  animation-delay: 12s;
+}
+
+@keyframes patchyThunderRainFloat {
+  0% {
+    transform: translateX(-100px);
+  }
+  100% {
+    transform: translateX(420px);
+  }
+}
+
+@keyframes patchyThunderRainFall {
+  0% {
+    transform: translateY(-40px);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(130px);
+    opacity: 0;
+  }
+}
+
+@keyframes patchyThunderFlash {
+  0%, 94%, 100% {
+    opacity: 0;
+  }
+  95%, 96% {
+    opacity: 0.2;
+  }
+  97%, 98% {
+    opacity: 0.1;
+  }
+}
+
+/* Make the sky medium gray for patchy light rain with thunder */
+.widget.patchy-light-rain-in-area-with-thunder .sky {
+  background: linear-gradient(to top, #4a5568, #718096);
+}
+
+/* Subtle lightning effect */
+.widget.patchy-light-rain-in-area-with-thunder .patchy-thunder-lightning {
+  filter: brightness(1.3) blur(5px);
+}
+
+/* Moderate Rain at Times Animation */
+.moderate-rain-at-times-animation {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.moderate-rain-cloud {
+  position: absolute;
+  background: #6b7280;
+  border-radius: 50px;
+  opacity: 0.8;
+  animation: moderateRainFloat 20s infinite linear;
+}
+
+.moderate-rain-cloud.cloud-1 {
+  width: 130px;
+  height: 65px;
+  top: 40px;
+  left: -100px;
+  animation-delay: 0s;
+}
+
+.moderate-rain-cloud.cloud-2 {
+  width: 110px;
+  height: 55px;
+  top: 70px;
+  left: -140px;
+  animation-delay: -7s;
+}
+
+.moderate-rain-cloud.cloud-3 {
+  width: 90px;
+  height: 45px;
+  top: 30px;
+  left: -180px;
+  animation-delay: -14s;
+}
+
+.moderate-rain-drops {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.moderate-drop {
+  position: absolute;
+  width: 2px;
+  height: 15px;
+  background: linear-gradient(to bottom, transparent, #9ca3af, transparent);
+  border-radius: 1px;
+  animation: moderateRainFall 1.8s infinite linear;
+  opacity: 0;
+  left: calc(10% + (80% * var(--random-pos)));
+  animation-delay: calc(var(--random-delay) * -1s);
+}
+
+.moderate-drop:nth-child(1) { --random-pos: 0.1; --random-delay: 0.1; }
+.moderate-drop:nth-child(2) { --random-pos: 0.2; --random-delay: 0.3; }
+.moderate-drop:nth-child(3) { --random-pos: 0.3; --random-delay: 0.5; }
+.moderate-drop:nth-child(4) { --random-pos: 0.4; --random-delay: 0.7; }
+.moderate-drop:nth-child(5) { --random-pos: 0.5; --random-delay: 0.9; }
+.moderate-drop:nth-child(6) { --random-pos: 0.6; --random-delay: 1.1; }
+.moderate-drop:nth-child(7) { --random-pos: 0.7; --random-delay: 1.3; }
+.moderate-drop:nth-child(8) { --random-pos: 0.8; --random-delay: 1.5; }
+.moderate-drop:nth-child(9) { --random-pos: 0.9; --random-delay: 1.7; }
+.moderate-drop:nth-child(10) { --random-pos: 0.15; --random-delay: 0.2; }
+.moderate-drop:nth-child(11) { --random-pos: 0.45; --random-delay: 0.6; }
+.moderate-drop:nth-child(12) { --random-pos: 0.75; --random-delay: 1.0; }
+
+@keyframes moderateRainFloat {
+  0% {
+    transform: translateX(-150px);
+  }
+  100% {
+    transform: translateX(450px);
+  }
+}
+
+@keyframes moderateRainFall {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.7;
+  }
+  80% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(150px);
+    opacity: 0;
+  }
+}
+
+/* Make the sky gray for moderate rain */
+.widget.moderate-rain-at-times .sky {
+  background: linear-gradient(to top, #4a5568, #718096);
+}
+
+/* Moderate rain effect */
+.widget.moderate-rain-at-times .moderate-drop {
+  filter: blur(0.3px);
+}
+
+/* Light Drizzle Animation */
+.light-drizzle-animation {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.drizzle-cloud {
+  position: absolute;
+  background: #9ca3af;
+  border-radius: 50px;
+  opacity: 0.6;
+  animation: drizzleCloudFloat 35s infinite linear;
+}
+
+.drizzle-cloud.cloud-1 {
+  width: 100px;
+  height: 50px;
+  top: 50px;
+  left: -70px;
+  animation-delay: 0s;
+}
+
+.drizzle-cloud.cloud-2 {
+  width: 80px;
+  height: 40px;
+  top: 80px;
+  left: -110px;
+  animation-delay: -15s;
+}
+
+.drizzle-drops {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.drizzle-drop {
+  position: absolute;
+  width: 1px;
+  height: 8px;
+  background: #d1d5db;
+  border-radius: 0.5px;
+  animation: drizzleFall 4s infinite linear;
+  opacity: 0;
+  left: calc(15% + (70% * var(--random-pos)));
+  animation-delay: calc(var(--random-delay) * -1s);
+}
+
+.drizzle-drop:nth-child(1) { --random-pos: 0.1; --random-delay: 0.1; }
+.drizzle-drop:nth-child(2) { --random-pos: 0.2; --random-delay: 0.8; }
+.drizzle-drop:nth-child(3) { --random-pos: 0.3; --random-delay: 1.5; }
+.drizzle-drop:nth-child(4) { --random-pos: 0.4; --random-delay: 2.2; }
+.drizzle-drop:nth-child(5) { --random-pos: 0.5; --random-delay: 2.9; }
+.drizzle-drop:nth-child(6) { --random-pos: 0.6; --random-delay: 0.4; }
+.drizzle-drop:nth-child(7) { --random-pos: 0.7; --random-delay: 1.1; }
+.drizzle-drop:nth-child(8) { --random-pos: 0.8; --random-delay: 1.8; }
+.drizzle-drop:nth-child(9) { --random-pos: 0.9; --random-delay: 2.5; }
+.drizzle-drop:nth-child(10) { --random-pos: 0.15; --random-delay: 3.2; }
+
+@keyframes drizzleCloudFloat {
+  0% {
+    transform: translateX(-100px);
+  }
+  100% {
+    transform: translateX(400px);
+  }
+}
+
+@keyframes drizzleFall {
+  0% {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.3;
+  }
+  90% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+}
+
+/* Make the sky light gray for drizzle */
+.widget.light-drizzle .sky {
+  background: linear-gradient(to top, #a0aec0, #cbd5e0);
+}
+
+/* Very subtle drizzle effect */
+.widget.light-drizzle .drizzle-drop {
+  filter: blur(0.5px);
+}
