@@ -3,7 +3,7 @@ import { Outlet, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import "./App.css";
-import HeatMap from "./pages/HeatMap";
+import WeatherMap from "./pages/WeatherMap";
 
 function Layout({
   weather,
@@ -79,7 +79,7 @@ function App() {
     }
   }, []);
 
-  return (
+return (
     <Routes>
       <Route
         path="/"
@@ -93,7 +93,8 @@ function App() {
         }
       >
         <Route index element={<Home />} />
-        <Route path="/heatmap" element={<HeatMap />} />
+        <Route path="weather-map" element={<WeatherMap />} />
+        
       </Route>
     </Routes>
   );

@@ -2,7 +2,6 @@ package com.example.prognozaduvali.DTO;
 
 
 import lombok.Data;
-import org.springframework.format.annotation.DateTimeFormat;
 
 @Data
 public class Current {
