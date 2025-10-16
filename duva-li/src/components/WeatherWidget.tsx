@@ -73,6 +73,18 @@ export default function WeatherWidget({
           </div>
         )}
 
+        {condition === "Light rain shower" && (
+          <div className="light-rain-shower-animation">
+            <div className="shower-cloud cloud-1"></div>
+            <div className="shower-cloud cloud-2"></div>
+            <div className="light-shower-drops">
+              {[...Array(8)].map((_, i) => (
+                <div className="shower-drop" key={i}></div>
+              ))}
+            </div>
+          </div>
+        )}
+
         {condition === "Patchy rain nearby" && (
           <div className="patchy-rain-animation">
             <div className="patchy-cloud cloud-1"></div>

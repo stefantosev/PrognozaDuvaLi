@@ -1466,3 +1466,100 @@ body {
     font-size: 0.85rem;
   }
 }
+
+
+/* Light Rain Shower Animation */
+.light-rain-shower-animation {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.shower-cloud {
+  position: absolute;
+  background: #6b7280;
+  border-radius: 50px;
+  opacity: 0.7;
+  animation: showerCloudFloat 20s infinite linear;
+}
+
+.shower-cloud.cloud-1 {
+  width: 110px;
+  height: 55px;
+  top: 50px;
+  left: -90px;
+  animation-delay: 0s;
+}
+
+.shower-cloud.cloud-2 {
+  width: 90px;
+  height: 45px;
+  top: 80px;
+  left: -130px;
+  animation-delay: -10s;
+}
+
+.light-shower-drops {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.shower-drop {
+  position: absolute;
+  width: 1.5px;
+  height: 10px;
+  background: #cbd5e0;
+  border-radius: 1px;
+  animation: lightShowerFall 2s infinite linear;
+  opacity: 0;
+  left: calc(20% + (60% * var(--random-pos)));
+  animation-delay: calc(var(--random-delay) * -1s);
+}
+
+.shower-drop:nth-child(1) { --random-pos: 0.1; --random-delay: 0.1; }
+.shower-drop:nth-child(2) { --random-pos: 0.2; --random-delay: 0.4; }
+.shower-drop:nth-child(3) { --random-pos: 0.3; --random-delay: 0.7; }
+.shower-drop:nth-child(4) { --random-pos: 0.4; --random-delay: 1.0; }
+.shower-drop:nth-child(5) { --random-pos: 0.5; --random-delay: 1.3; }
+.shower-drop:nth-child(6) { --random-pos: 0.6; --random-delay: 1.6; }
+.shower-drop:nth-child(7) { --random-pos: 0.7; --random-delay: 1.9; }
+.shower-drop:nth-child(8) { --random-pos: 0.8; --random-delay: 0.2; }
+
+@keyframes showerCloudFloat {
+  0% {
+    transform: translateX(-120px);
+  }
+  100% {
+    transform: translateX(400px);
+  }
+}
+
+@keyframes lightShowerFall {
+  0% {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.5;
+  }
+  80% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(120px);
+    opacity: 0;
+  }
+}
+
+/* Make the sky light gray for light rain shower */
+.widget.light-rain-shower .sky {
+  background: linear-gradient(to top, #718096, #a0aec0);
+}
+
+/* Gentle rain effect */
+.widget.light-rain-shower .shower-drop {
+  filter: blur(0.2px);
+}
