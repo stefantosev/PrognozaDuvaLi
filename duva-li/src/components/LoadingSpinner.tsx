@@ -21,7 +21,7 @@ export default function LoadingSpinner() {
           Please wait while we fetch the latest weather information...
         </p>
         
-        <div className="mt-6 flex justify-center gap-2">
+        <div className="mt-6 dot-container gap-2">
           <div className="dot"></div>
           <div className="dot" style={{animationDelay: '0.2s'}}></div>
           <div className="dot" style={{animationDelay: '0.4s'}}></div>

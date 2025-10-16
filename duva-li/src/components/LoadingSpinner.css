@@ -16,7 +16,7 @@
 .cloud-icon {
   width: 80px;
   height: 80px;
-  animation: bounce 1s infinite alternate;
+  animation: cloud-bounce 1s infinite alternate;
   margin-bottom: 1.5rem;
 }
 
@@ -41,7 +41,7 @@
 }
 
 .dot-container {
-  display: row;
+  display: flex;
   justify-content: center;
   gap: 0.5rem;
   margin-top: 1.5rem;
@@ -52,7 +52,7 @@
   height: 8px;
   background-color: white;
   border-radius: 50%;
-  animation: bounce 0.6s infinite alternate;
+  animation: dot-bounce 0.6s infinite alternate;
 }
 
 /* Animations */
@@ -61,7 +61,11 @@
   100% { transform: rotate(360deg); }
 }
 
-@keyframes bounce {
+@keyframes cloud-bounce {
   0% { transform: translateY(0); }
   100% { transform: translateY(-15px); }
+}
+@keyframes dot-bounce {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-3px); }
 }
