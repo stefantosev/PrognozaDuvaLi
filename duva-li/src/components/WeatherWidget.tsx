@@ -85,6 +85,45 @@ export default function WeatherWidget({
           </div>
         )}
 
+        {condition === "Patchy light rain in area with thunder" && (
+          <div className="patchy-light-rain-thunder-animation">
+            <div className="patchy-thunder-rain-cloud cloud-1"></div>
+            <div className="patchy-thunder-rain-cloud cloud-2"></div>
+            <div className="patchy-thunder-rain-drops">
+              {[...Array(6)].map((_, i) => (
+                <div className="patchy-thunder-drop" key={i}></div>
+              ))}
+            </div>
+            <div className="patchy-thunder-lightning flash-1"></div>
+            <div className="patchy-thunder-lightning flash-2"></div>
+          </div>
+        )}
+
+        {condition === "Moderate rain at times" && (
+          <div className="moderate-rain-at-times-animation">
+            <div className="moderate-rain-cloud cloud-1"></div>
+            <div className="moderate-rain-cloud cloud-2"></div>
+            <div className="moderate-rain-cloud cloud-3"></div>
+            <div className="moderate-rain-drops">
+              {[...Array(12)].map((_, i) => (
+                <div className="moderate-drop" key={i}></div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {condition === "Light drizzle" && (
+          <div className="light-drizzle-animation">
+            <div className="drizzle-cloud cloud-1"></div>
+            <div className="drizzle-cloud cloud-2"></div>
+            <div className="drizzle-drops">
+              {[...Array(10)].map((_, i) => (
+                <div className="drizzle-drop" key={i}></div>
+              ))}
+            </div>
+          </div>
+        )}
+
         {condition === "Patchy rain nearby" && (
           <div className="patchy-rain-animation">
             <div className="patchy-cloud cloud-1"></div>
