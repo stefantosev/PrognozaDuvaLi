@@ -169,7 +169,7 @@ const WeatherMap: React.FC = () => {
   return (
     <div className="weather-map-page">
       <div className="weather-map-container">
-        <div className="weather-map-header">
+        
           <div className="header-content">
             <h1>🌤️ Weather Map</h1>
             <div className="header-stats">
@@ -177,11 +177,7 @@ const WeatherMap: React.FC = () => {
               <span>•</span>
               <span className="update-time">Live Data</span>
             </div>
-          </div>
-          <button className="refresh-button" onClick={fetchCountryWeather}>
-            🔄 Refresh
-          </button>
-        </div>
+          </div> 
 
         <div className="map-wrapper">
           <MapContainer
@@ -190,7 +186,7 @@ const WeatherMap: React.FC = () => {
             className="weather-map"
             zoomControl={!isMobile}
             dragging={!isMobile}
-            tap={!isMobile}
+            // tap={!isMobile}
           >
             <TileLayer
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

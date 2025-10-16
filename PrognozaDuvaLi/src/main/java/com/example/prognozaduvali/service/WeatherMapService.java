@@ -18,7 +18,7 @@ public class WeatherMapService {
     private final List<String> majorCities = Arrays.asList(
         "Veles", "Skopje", "Kumanovo", "Bitola", "Stip",
         "Gevgelija", "Ohrid", "Tetovo", "Kocani",
-        "Bogomila", "Gostivar", "Prilep", "Strumica", "Kicevo", "Kriva Palanka", "Demir"
+        "Bogomila", "Gostivar", "Prilep", "Strumica", "Kicevo", "Kriva Palanka", "Demir Hisar"
     );
 
     public WeatherMapService(WeatherService weatherService) {

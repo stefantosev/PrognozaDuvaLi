@@ -100,7 +100,7 @@ export default function Navbar({ onSearch, onGetLocation }: NavbarProps) {
       <div className="nav-links">
          <div className="nav-links">
             <Link to="/" className="nav-link">Home</Link>
-            <Link to="/weather-map">Weather Map</Link>
+            <Link to="/weather-map" className="nav-link">Weather Map</Link>
           </div>
       </div>
 
