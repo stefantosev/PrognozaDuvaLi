@@ -1,0 +1,67 @@
+.loading-container {
+  position: fixed; /* cover the entire screen */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom right, #3b82f6, #2563eb); /* blue gradient */
+  color: white;
+  text-align: center;
+  z-index: 9999; /* above everything */
+}
+
+.cloud-icon {
+  width: 80px;
+  height: 80px;
+  animation: bounce 1s infinite alternate;
+  margin-bottom: 1.5rem;
+}
+
+.spinner {
+  width: 64px;
+  height: 64px;
+  border: 4px solid white;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 1rem auto;
+}
+
+.loading-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.loading-text {
+  color: #dbeafe;
+}
+
+.dot-container {
+  display: row;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background-color: white;
+  border-radius: 50%;
+  animation: bounce 0.6s infinite alternate;
+}
+
+/* Animations */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes bounce {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-15px); }
+}
