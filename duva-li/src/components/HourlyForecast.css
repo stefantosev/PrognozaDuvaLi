@@ -56,3 +56,36 @@
   opacity: 0.9;
   margin-top: 0.2rem;
 }
+
+/* 📱 Responsive layout for small screens */
+@media (max-width: 600px) {
+  .hourly-forecast-list {
+    flex-direction: column;        /* stack items vertically */
+    align-items: center;           /* center them */
+    overflow-x: hidden;            /* no horizontal scroll */
+    gap: 0.8rem;                   /* slightly smaller spacing */
+    padding: 0.5rem;
+  }
+
+  .hourly-forecast-item {
+    width: 90%;                    /* make item wider */
+    max-width: 300px;
+    flex-shrink: 1;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 1rem;
+  }
+
+  .hourly-title {
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .hourly-temp {
+    font-size: 1.3rem;
+  }
+
+  .hourly-condition,
+  .hourly-extra {
+    font-size: 0.9rem;
+  }
+}

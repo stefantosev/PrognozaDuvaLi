@@ -1371,3 +1371,98 @@ body {
 .widget.cloudy .sky {
   background: linear-gradient(to top, #718096, #a0aec0);
 }
+
+/* 🌙 Responsive Design for All Devices */
+@media (max-width: 768px) {
+  .widget {
+    width: 90%;
+    margin-top: -rem;
+    border-radius: 10px;
+  }
+
+  .sky {
+    height: 150px;
+  }
+
+  .moon {
+    width: 50px;
+    height: 50px;
+    top: 20px;
+    left: 20px;
+  }
+
+  .card {
+    padding: 0.75rem;
+    gap: 0.75rem;
+  }
+
+  .card-main {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .temperature {
+    font-size: 2.5rem;
+  }
+
+  .details {
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
+  .forecast {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 0.4rem;
+  }
+
+  .forecast-day {
+    font-size: 0.85rem;
+    padding: 0.4rem;
+  }
+
+  .proverb {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .widget {
+    width: 95%;
+    margin-top: 18rem;
+  }
+
+  .sky {
+    height: 120px;
+  }
+
+  .moon {
+    width: 40px;
+    height: 40px;
+    top: 15px;
+    left: 15px;
+  }
+
+  .temperature {
+    font-size: 2rem;
+  }
+
+  .details {
+    font-size: 0.85rem;
+  }
+
+  .forecast {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.3rem;
+  }
+
+  .forecast-day {
+    font-size: 0.8rem;
+    padding: 0.3rem;
+  }
+
+  .proverb {
+    font-size: 0.85rem;
+  }
+}

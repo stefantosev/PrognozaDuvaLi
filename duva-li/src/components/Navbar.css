@@ -1,3 +1,5 @@
+
+
 .navbar {
   position: fixed;
   top: 0;
@@ -6,7 +8,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* Enhanced navbar with gradient and glassmorphism */
   background: linear-gradient(135deg, rgba(61, 60, 60, 0.95) 0%, rgba(9, 9, 9, 0.95) 100%);
   backdrop-filter: blur(10px);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
@@ -134,4 +135,80 @@
 
 .location-icon {
   color: #1a73e8; /* Google Maps blue */
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .search-container {
+    margin-left: 4rem;
+    width: 280px;
+  }
+
+  .nav-link {
+    font-size: 1rem;
+  }
+
+  .nav-logo img {
+    width: 180px;
+    height: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    padding: 0.1rem;
+  }
+
+  .nav-logo img {
+    width: 160px;
+    height: 55px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-top: 0.4rem;
+  }
+
+  .search-container {
+    margin: 0.8rem 0 0 0;
+    width: 90%;
+    justify-content: space-between;
+  }
+
+  .search-input {
+    font-size: 1rem;
+  }
+
+  .location-container {
+    margin-left: 0;
+    margin-top: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-logo img {
+    width: 140px;
+    height: 50px;
+  }
+
+  .logo-text {
+    font-size: 1.4rem;
+  }
+
+  .nav-link {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .search-container {
+    width: 95%;
+    padding: 0.4rem 0.6rem;
+  }
+
+  .search-input {
+    font-size: 0.9rem;
+  }
 }
