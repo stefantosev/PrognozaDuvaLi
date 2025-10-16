@@ -48,7 +48,7 @@ const WeatherMap: React.FC = () => {
       setError(null);
 
       const response = await fetch(
-        "http://localhost:8080/api/weather-map/country"
+        "https://prognozaduvali.onrender.com/api/weather-map/country"
       );
 
       if (!response.ok) {
